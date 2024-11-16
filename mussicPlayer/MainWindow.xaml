@@ -1,0 +1,40 @@
+﻿<Window x:Class="MusicPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Music Player" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Playlist -->
+        <ListBox x:Name="Playlist" Grid.Column="0" SelectionChanged="Playlist_SelectionChanged" Margin="10,74,10,10" />
+
+        <!-- Controls -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock x:Name="SongInfo" FontSize="16" FontWeight="Bold" Margin="5"/>
+
+            <!-- Buttons -->
+            <Button Content="Add Songs" Click="AddSongs_Click" Margin="5"/>
+            <Button Content="Remove Song" Click="RemoveSong_Click" Margin="5"/>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <Button Content="Play" Click="Play_Click" Width="50"/>
+                <Button Content="Pause" Click="Pause_Click" Width="50"/>
+                <Button Content="Next" Click="Next_Click" Width="50"/>
+                <Button Content="Previous" Click="Previous_Click" Width="70"/>
+            </StackPanel>
+
+            <!-- Play Mode -->
+            <TextBlock Text="Play Mode:" Margin="5"/>
+            <RadioButton x:Name="SequentialMode" Content="Sequential" IsChecked="True" Margin="5"/>
+            <RadioButton x:Name="ShuffleMode" Content="Shuffle" Margin="5"/>
+
+            <!-- Slider for adjusting playback position -->
+            <Slider x:Name="PlaybackSlider" Minimum="0" Maximum="100" Value="0" ValueChanged="PlaybackSlider_ValueChanged" Margin="5"/>
+            <TextBlock x:Name="CurrentTimeTextBlock" Margin="5"/>
+            <TextBlock x:Name="TotalTimeTextBlock" Margin="5"/>
+        </StackPanel>
+        <Label Content="List song" HorizontalAlignment="Left" Height="26" Margin="60,19,0,0" VerticalAlignment="Top" Width="127"/>
+    </Grid>
+</Window>
